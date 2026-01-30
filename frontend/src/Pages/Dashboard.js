@@ -31,10 +31,18 @@ export default function Dashboard() {
 
   useEffect(() => {
     api.get("/expenses")
-      .then(res => setExpenses(res.data))
-      .catch(() => {
-        localStorage.clear();
-        window.location.href = "/login";
+      .then(res => {
+        console.log("✓ Expenses loaded:", res.data);
+        setExpenses(res.data || []);
+      })
+      .catch(err => {
+        console.error("❌ Failed to load expenses:", err.response?.status, err.message);
+        if (err.response?.status === 401) {
+          console.warn("Token expired - redirecting to login");
+          localStorage.clear();
+          window.location.href = "/login";
+        }
+        setExpenses([]);
       });
   }, []);
 
