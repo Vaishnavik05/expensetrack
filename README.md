@@ -10,7 +10,6 @@ A full-stack expense tracking application with authentication, analytics, report
 * Add / Update / Delete Expenses
 * Personal Dashboard with Charts
 * Reports with PDF Export
-* Admin Analytics Dashboard
 * AI Spending Insights (basic rule-based)
 
 ---
@@ -156,20 +155,9 @@ http://localhost:3000
 
 ## Reports & PDF
 
-* 📄 User Expense PDF Export (Reports page)
-* 📈 Admin System Report PDF
+* User Expense PDF Export (Reports page)
 
 > Note: `₹` is replaced with `Rs.` in PDFs to avoid encoding issues.
-
----
-
-## Admin Access
-
-Admin view is enabled when:
-
-* Username is `admin`
-  OR
-* Email contains `admin`
 
 ---
 
@@ -181,15 +169,6 @@ Admin view is enabled when:
 * Fully responsive modern UI
 
 ---
-
-## Test Users
-
-Create users using Register page.
-
-Example Admin:
-
-```
-Username: admin
-Email: admin@example.com
-Password: 1234
-```
+Frontend deploy: https://trackingexpens.netlify.app/
+Backend: https://expensetrack-production-7464.up.railway.app/
+Database: Connected and running (Railway) 
