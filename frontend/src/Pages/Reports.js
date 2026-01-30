@@ -19,8 +19,6 @@ import {
   Alert,
 } from "@mui/material";
 import {
-  BarChart,
-  Bar,
   LineChart,
   Line,
   PieChart,
