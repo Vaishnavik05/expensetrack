@@ -20,8 +20,6 @@ import {
   Tooltip,
   ResponsiveContainer
 } from "recharts";
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import jsPDF from "jspdf";
 import "jspdf-autotable";
 const getColor = (index) => {
   const hue = (index * 67) % 360;
