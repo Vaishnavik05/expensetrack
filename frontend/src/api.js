@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:8080/api",
+  baseURL: "https://expensetrack-production-7464.up.railway.app/api",
   timeout: 10000,
   headers: {
     "Content-Type": "application/json"

@@ -2,7 +2,7 @@ import axios from "axios";
 import { getToken } from "./auth";
 
 const api = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: "https://expensetrack-production-7464.up.railway.app",
 });
 
 api.interceptors.request.use((config) => {

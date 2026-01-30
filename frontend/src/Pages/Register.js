@@ -11,7 +11,7 @@ function Register() {
 
   const handleRegister = async () => {
     try {
-      const response = await axios.post("http://localhost:8080/api/auth/register", {
+      const response = await axios.post("https://expensetrack-production-7464.up.railway.app/api/auth/register", {
         name,
         email,
         password
