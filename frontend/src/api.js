@@ -15,10 +15,9 @@ api.interceptors.request.use(
     console.log("Request interceptor - token:", token ? token.substring(0, 20) + "..." : "NO TOKEN");
     
     if (token) {
+      // Try with Authorization header
       config.headers.Authorization = `Bearer ${token}`;
       console.log("Authorization header set");
-    } else {
-      console.warn("No token found in localStorage for request to:", config.url);
     }
     
     return config;
@@ -29,14 +28,17 @@ api.interceptors.request.use(
   }
 );
 
-// Response interceptor - handle 401
+// Response interceptor - handle 401/403
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
-      console.error("401 Unauthorized - clearing token");
-      localStorage.clear();
-      window.location.href = "/login";
+    if (error.response?.status === 401 || error.response?.status === 403) {
+      console.error(`${error.response.status} Error - Token may be invalid`);
+      // Don't automatically logout on 403 - let component handle it
+      if (error.response?.status === 401) {
+        localStorage.clear();
+        window.location.href = "/login";
+      }
     }
     return Promise.reject(error);
   }
